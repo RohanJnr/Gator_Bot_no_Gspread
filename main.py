@@ -70,7 +70,7 @@ async def background_task():
 
         await asyncio.sleep(60)  # task runs every 60 seconds
 
-
+"""
 async def background_task_2():
 
     await bot.wait_until_ready()
@@ -109,6 +109,7 @@ async def cancelwr(ctx):
 async def runwr(ctx):
     bot.reminder_task = bot.loop.create_task(background_task_2())
     await ctx.send("war reminders are now turned on")
+"""
 
 @bot.event
 async def on_ready():
