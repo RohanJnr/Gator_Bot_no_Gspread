@@ -99,13 +99,13 @@ async def background_task_2():
 bot.reminder_task = bot.loop.create_task(background_task_2())
 
 
-@commands.command()
+@bot.command()
 async def cancelwr(ctx):
     bot.reminder_task.cancel()
     await ctx.send("war reminders are now turned off")
 
 
-@commands.command()
+@bot.command()
 async def runwr(ctx):
     bot.reminder_task = bot.loop.create_task(background_task_2())
     await ctx.send("war reminders are now turned on")
