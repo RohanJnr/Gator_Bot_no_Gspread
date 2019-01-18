@@ -96,13 +96,6 @@ async def background_task_2():
 
         asyncio.sleep(60)  # task runs every 60 seconds
 
-
-@bot.event
-async def on_ready():
-    logging.info('Running as {}'.format(bot.user.name))
-    logging.info(bot.user.id)
-    await bot.change_presence(activity=discord.Game(name='Where\'s my Water?'))
-
 bot.reminder_task = bot.loop.create_task(background_task_2())
 
 
@@ -116,6 +109,12 @@ async def cancelwr(ctx):
 async def runwr(ctx):
     bot.reminder_task = bot.loop.create_task(background_task_2())
     await ctx.send("war reminders are now turned on")
+
+@bot.event
+async def on_ready():
+    logging.info('Running as {}'.format(bot.user.name))
+    logging.info(bot.user.id)
+    await bot.change_presence(activity=discord.Game(name='Where\'s my Water?'))
 
 
 bot.loop.create_task(background_task())
