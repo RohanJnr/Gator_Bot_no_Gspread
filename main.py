@@ -89,14 +89,13 @@ async def background_task_2():
             current_hour = datetime.datetime.now().hour
             current_minute = datetime.datetime.now().minute
             channel = bot.get_channel(480399532253773834)
-            if int(current_hour) == 2 and int(current_minute) == 00:
+            if int(current_hour) == 2 and int(current_minute) == 10:
                 await channel.send(' ```War Reminder```*** @everyone shields up ! war spin in 24 hours ! *** ')
             else:
                 pass
 
 
-await
-asyncio.sleep(60)  # task runs every 60 seconds
+        asyncio.sleep(60)  # task runs every 60 seconds
 
 
 
