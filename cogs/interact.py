@@ -20,9 +20,9 @@ class Commands:
     @commands.command()
     async def cwlhelp(self, ctx):
         msg = ''' ```1) bot.cwl - Adds a players info to cwl rooster.
-Usage : <IGN>-<TownHall level>-<can you war all days?(yes or no)>-<specify which days of the cwl you can participate>
-Example : bot.cwl Iceman-9-yes-I can participate all days
-Example : bot.cwl Iceman-9-no-i cannot war the last 2 days
+Usage : <IGN>-<TownHall level>-<can you war all days?(yes or no)>
+Example : bot.cwl Iceman-9-yes
+Example : bot.cwl Iceman-9-no
 2) bot.cwlinfo - Searchs for a player and returns their info in cwl rooster
 Usage  : <ign_of_member_to_search>
 Example : bot.cwlinfo Iceman ```'''

@@ -81,7 +81,7 @@ async def background_task_2():
             current_minute = datetime.datetime.now().minute
             channel = bot.get_channel(480399532253773834)
             if int(current_hour) == 00 and int(current_minute) == 00:
-                await channel.send(' this is a test! ')
+                await channel.send(' ```War Reminder```*** @everyone shields up ! war spin in 2 hours ! ***')
             else:
                 pass
 
