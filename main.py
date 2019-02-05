@@ -71,7 +71,7 @@ async def background_task():
         await asyncio.sleep(60)  # task runs every 60 seconds
 
 
-async def background_task_2():
+"""async def background_task_2():
 
     await bot.wait_until_ready()
     while not bot.is_closed():
@@ -97,7 +97,7 @@ async def background_task_2():
         await asyncio.sleep(60)  # task runs every 60 seconds
 
 bot.reminder_task = bot.loop.create_task(background_task_2())
-
+"""
 
 @bot.command()
 async def cancelwr(ctx):

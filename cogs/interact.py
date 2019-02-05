@@ -25,7 +25,15 @@ Example : bot.cwl Iceman-9-yes
 Example : bot.cwl Iceman-9-no
 2) bot.cwlinfo - Searchs for a player and returns their info in cwl rooster
 Usage  : <ign_of_member_to_search>
-Example : bot.cwlinfo Iceman ```'''
+Example : bot.cwlinfo Iceman 
+
+3) bot.cwlview - Shows all participants.
+
+4) bot.summary
+
+5) bot
+
+```'''
         await ctx.send(msg)
 
     @commands.command()
