@@ -11,11 +11,17 @@ class FunStuff:
 
     @commands.command()
     async def flip(self, ctx):
+        """
+        Flips a coin
+        """
         x = random.choice(['Heads', 'Tails'])
         await ctx.send(x)
 
     @commands.command()
     async def magic8ball(self, ctx):
+        """
+        Magic8ball
+        """
         my_response = [
             ":8ball: It is certain ",
             ":8ball: It is decidedly so ",
@@ -43,6 +49,10 @@ class FunStuff:
 
     @commands.command()
     async def rps(self, ctx, c):
+        """
+        Play rock, paper or scissors game with the bot.
+        eg : bot.rps rock
+        """
         try:
             bot_answer = random.choice(("Rock", "Paper", "Scissor"))
 
