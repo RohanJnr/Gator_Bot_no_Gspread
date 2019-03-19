@@ -2,3 +2,4 @@ git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py
 asyncio
 https://github.com/eliasfrank/humanify/archive/master.zip
 pynacl==1.2.1
+requests
