@@ -14,10 +14,11 @@ bot.owner_id = 263560579770220554
 
 
 cogs = [
+    'clashapi',
     'interact',
     'moderation',
     'all_user_commands',
-    'war_strats'
+    'war_strats',
 ]
 
 for cog in cogs:
@@ -50,18 +51,12 @@ async def background_task():
                 pass
         await asyncio.sleep(60)  # task runs every 60 seconds
 
-"""
-@bot.command()
-async def cancelwr(ctx):
-    bot.reminder_task.cancel()
-    await ctx.send("war reminders are now turned off")
 
-
-@bot.command()
-async def runwr(ctx):
-    bot.reminder_task = bot.loop.create_task(background_task_2())
-    await ctx.send("war reminders are now turned on")
-"""
+async def trail_update():
+    """
+    updates existing trial member's war results in database.
+    """
+    pass
 
 
 @bot.event
@@ -69,6 +64,14 @@ async def on_ready():
     logging.info('Running as {}'.format(bot.user.name))
     logging.info(bot.user.id)
     await bot.change_presence(activity=discord.Game(name='Where\'s my Water?'))
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send(error + " : Please provide all the necessary arguments.")
+    elif isinstance(error, commands.CommandNotFound):
+        await ctx.send("The following command does not exist.")
 
 bot.loop.create_task(background_task())
 bot.run(os.environ.get('token'))

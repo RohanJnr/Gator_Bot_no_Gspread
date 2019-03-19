@@ -3,7 +3,7 @@ from discord import Embed
 import sqlite3
 
 
-class WarStrats:
+class WarStrats(commands.Cog):
     """
     A cog where war strategies can be viewed from and add to the database.
     """

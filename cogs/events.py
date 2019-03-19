@@ -4,7 +4,7 @@ from discord.ext import commands
 # import libs here
 
 
-class Events:
+class Events(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -12,7 +12,8 @@ class Events:
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(error + " : Please provide all the necessary arguments.")
-        raise error
+        elif isinstance(error, commands.CommandNotFound):
+            await ctx.send("The following command does not exist.")
 
 
 def setup(bot):

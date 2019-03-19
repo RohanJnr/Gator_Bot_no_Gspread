@@ -5,7 +5,7 @@ import datetime
 admin_ids = ['255409211385708546', '255403079669645312', '255419757895876608']
 
 
-class HelpCommands:
+class HelpCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
