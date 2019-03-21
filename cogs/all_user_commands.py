@@ -82,6 +82,9 @@ class FunStuff(commands.Cog):
 
     @commands.command(name="joke")
     async def get_joke(self, ctx):
+        """
+        Retruns a joke.
+        """
         r = requests.get("https://api.icndb.com/jokes/random")
         data = r.json()
         values = data['value']
