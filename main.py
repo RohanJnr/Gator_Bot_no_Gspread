@@ -8,7 +8,7 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 
-bot = commands.Bot(command_prefix='bot.')
+bot = commands.Bot(command_prefix='.')
 
 bot.owner_id = 263560579770220554
 

@@ -1,7 +1,6 @@
 from discord.ext import commands
 import random
-
-# import libs here
+import requests
 
 
 class FunStuff(commands.Cog):
@@ -80,6 +79,14 @@ class FunStuff(commands.Cog):
             await ctx.send(f"Bot picked {bot_answer}, you picked {player_answer}... You win!")
         except:
             await ctx.send('Please enter your answer')
+
+    @commands.command(name="joke")
+    async def get_joke(self,ctx):
+        r = requests.get("https://api.icndb.com/jokes/random")
+        data = r.json()
+        values = data['value']
+        joke = values['joke']
+        await ctx.send(joke)
 
 
 def setup(bot):
