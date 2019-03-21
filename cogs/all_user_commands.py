@@ -81,7 +81,7 @@ class FunStuff(commands.Cog):
             await ctx.send('Please enter your answer')
 
     @commands.command(name="joke")
-    async def get_joke(self,ctx):
+    async def get_joke(self, ctx):
         r = requests.get("https://api.icndb.com/jokes/random")
         data = r.json()
         values = data['value']
