@@ -1,5 +1,4 @@
 from discord.ext import commands
-import datetime
 # import humanify
 
 admin_ids = ['255409211385708546', '255403079669645312', '255419757895876608']

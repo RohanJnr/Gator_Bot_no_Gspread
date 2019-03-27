@@ -1,6 +1,5 @@
 from discord.ext import commands
 from discord import Member
-import requests
 import typing
 
 

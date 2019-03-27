@@ -94,7 +94,9 @@ class WarStrats(commands.Cog):
         else:
             await ctx.send(str(error))
 
+    async def on_command_error(error, ctx):
+        await ctx.send(str(error))
+
 
 def setup(bot):
     bot.add_cog(WarStrats(bot))
-    # add this cog in main.py as well in the cogs list as the file name

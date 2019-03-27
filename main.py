@@ -19,6 +19,8 @@ cogs = [
     'moderation',
     'all_user_commands',
     'war_strats',
+    'notes',
+    'events'  # DOES NOT WORK
 ]
 
 for cog in cogs:
@@ -69,9 +71,11 @@ async def on_ready():
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(error + " : Please provide all the necessary arguments.")
+        await ctx.send(f"{error} : Please provide all the necessary arguments.")
     elif isinstance(error, commands.CommandNotFound):
         await ctx.send("The following command does not exist.")
+    else:
+        await ctx.send(str(error))
 
 bot.loop.create_task(background_task())
 bot.run(os.environ.get('token'))
