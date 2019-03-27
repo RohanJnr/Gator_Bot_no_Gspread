@@ -38,7 +38,7 @@ async def background_task():
             current_hour = datetime.datetime.now().hour
             current_minute = datetime.datetime.now().minute
             channel = bot.get_channel(254664901102927873)
-            if int(current_hour) == 2 and int(current_minute) == 30:
+            if int(current_hour) == 1 and int(current_minute) == 30:
                 await channel.send(' ```Meeting Reminder```***@everyone meeting in 30min ! *** ')
             else:
                 pass
@@ -47,7 +47,7 @@ async def background_task():
             current_hour = datetime.datetime.now().hour
             current_minute = datetime.datetime.now().minute
             channel = bot.get_channel(254664901102927873)
-            if int(current_hour) == 3 and int(current_minute) == 00:
+            if int(current_hour) == 2 and int(current_minute) == 00:
                 await channel.send(' ```Meeting Reminder```***@everyone meeting in 24 Hours ! *** ')
             else:
                 pass
