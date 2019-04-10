@@ -30,10 +30,10 @@ c = conn.cursor()
 #             discordID INTEGER,
 #             coctag TEXT
 #     )""")
-c.execute("""CREATE TABLE notes(
-            title TEXT,
-            description TEXT
-    )""")
+# c.execute("""CREATE TABLE notes(
+#             title TEXT,
+#             description TEXT
+#     )""")
 conn.commit()
 
 conn.close()

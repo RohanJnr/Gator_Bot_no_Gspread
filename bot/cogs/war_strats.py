@@ -26,7 +26,6 @@ class WarStrats(commands.Cog):
         if attack_name is None:
             c.execute("SELECT * FROM strategies WHERE townhall="+townhall+"")
             all_strats = c.fetchall()
-            print(all_strats)
             if len(all_strats) == 0:
                 embed.title = f'There are no attack strategies avilable for {townhall} :'
                 embed.description += 'None'

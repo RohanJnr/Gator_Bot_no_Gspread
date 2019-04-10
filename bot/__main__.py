@@ -1,30 +1,48 @@
-import discord
-from discord.ext import commands
-import logging
 import asyncio
 import datetime
-from datetime import date
+import logging
 import os
+
+import discord
+from discord.ext import commands
+
+from bot.constants import Client
 
 logging.basicConfig(level=logging.INFO)
 
-bot = commands.Bot(command_prefix='.')
 
-bot.owner_id = 263560579770220554
+def get_prefix(client, message):
 
+    prefixes = Client.prefixes
+    return commands.when_mentioned_or(*prefixes)(client, message)
+
+
+bot = commands.Bot(
+    command_prefix=get_prefix,
+    description='A dev bot',
+    owner_id=Client.owner_id,
+    case_insensitive=True
+)
 
 cogs = [
-    'clashapi',
-    'interact',
-    'moderation',
-    'all_user_commands',
-    'war_strats',
-    'notes',
-    'events'  # DOES NOT WORK
+    'cogs.all_user_commands',
+    'cogs.clashapi',
+    'cogs.discord_agecheck',
+    'cogs.interact',
+    'cogs.moderation',
+    'cogs.notes',
+    'cogs.trials',
+    'cogs.war_strats'
 ]
-
 for cog in cogs:
-    bot.load_extension('cogs.' + cog)
+    bot.load_extension(cog)
+
+
+@bot.event
+async def on_ready():
+    logging.info(f'Running as {bot.user.name}')
+    logging.info(bot.user.id)
+    await bot.change_presence(activity=discord.Game(name='spotify'))
 
 
 async def background_task():
@@ -32,7 +50,7 @@ async def background_task():
     await bot.wait_until_ready()
     while not bot.is_closed():
 
-        if date.today().weekday() == 6:
+        if datetime.date.today().weekday() == 6:
 
             # Reminder for weekly meeting at 10 PM EST
             current_hour = datetime.datetime.now().hour
@@ -43,7 +61,7 @@ async def background_task():
             else:
                 pass
 
-        elif date.today().weekday() == 5:
+        elif datetime.date.today().weekday() == 5:
             current_hour = datetime.datetime.now().hour
             current_minute = datetime.datetime.now().minute
             channel = bot.get_channel(254664901102927873)
@@ -63,9 +81,9 @@ async def trail_update():
 
 @bot.event
 async def on_ready():
-    logging.info('Running as {}'.format(bot.user.name))
+    logging.info(f'Running as {bot.user.name}')
     logging.info(bot.user.id)
-    await bot.change_presence(activity=discord.Game(name='Where\'s my Water?'))
+    await bot.change_presence(activity=discord.Game(name='Where\'s my water ?'))
 
 
 @bot.event
@@ -76,6 +94,8 @@ async def on_command_error(ctx, error):
         await ctx.send("The following command does not exist.")
     else:
         await ctx.send(str(error))
+        raise error
+
 
 bot.loop.create_task(background_task())
-bot.run(os.environ.get('token'))
+bot.run(Client.token, bot=True, reconnect=True)
