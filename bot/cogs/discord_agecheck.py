@@ -15,7 +15,7 @@ class DiscordAgeCheck(commands.Cog):
     @commands.group(name='check', invoke_without_command=True)
     async def days_check(self, ctx):
         """Check how old the members/trials are in the server."""
-        await ctx.invoke(self.bot.get_command("help"), "check")
+        await ctx.invoke(self.bot.get_command("help"))
 
     @days_check.command(name='members')
     async def member_days_check(self, ctx, no_of_days=90):
