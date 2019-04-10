@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="505630cd-d4bc-48e2-8481-e7778e943832" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/all_user_commands.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/clashapi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/events.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/interact.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/moderation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/notes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/template.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/trials.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/war_strats.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlite_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqlite_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/cogs/discord_agecheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/cogs/discord_agecheck.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +47,7 @@
           <entry key="Procfile" value="8" />
           <entry key="dummy" value="4" />
           <entry key="json" value="122" />
-          <entry key="py" value="13644" />
+          <entry key="py" value="13729" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
@@ -67,14 +55,14 @@
         <counts>
           <entry key="JSON" value="122" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="13644" />
+          <entry key="Python" value="13729" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sqlite_setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="201">
@@ -88,15 +76,15 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot/cogs/discord_agecheck.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+            <state relative-caret-position="209">
+              <caret line="27" column="87" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1554876980666" expanded="true" signature="440:550" ph="..." />
-                <marker date="1554876980666" expanded="true" signature="2402:2407" ph="..." />
+                <marker date="1554877393371" expanded="true" signature="440:550" ph="..." />
+                <marker date="1554877393371" expanded="true" signature="2468:2473" ph="..." />
               </folding>
             </state>
           </provider>
@@ -219,8 +207,8 @@
         <option value="$PROJECT_DIR$/bot/cogs/all_user_commands.py" />
         <option value="$PROJECT_DIR$/bot/__main__.py" />
         <option value="$PROJECT_DIR$/bot/constants.py" />
-        <option value="$PROJECT_DIR$/bot/cogs/discord_agecheck.py" />
         <option value="$PROJECT_DIR$/sqlite_setup.py" />
+        <option value="$PROJECT_DIR$/bot/cogs/discord_agecheck.py" />
       </list>
     </option>
   </component>
@@ -391,13 +379,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1845238" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2923077" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -507,22 +496,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot/cogs/discord_agecheck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554876980666" expanded="true" signature="440:550" ph="..." />
-            <marker date="1554876980666" expanded="true" signature="2402:2407" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sqlite_setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot/cogs/discord_agecheck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="27" column="87" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1554877393371" expanded="true" signature="440:550" ph="..." />
+            <marker date="1554877393371" expanded="true" signature="2468:2473" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
