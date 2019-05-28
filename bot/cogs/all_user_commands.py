@@ -91,6 +91,27 @@ class FunStuff(commands.Cog):
         joke = values['joke']
         await ctx.send(joke)
 
+    @commands.command(name='random')
+    async def random_number(self, ctx, number: int):
+        number_emojis = {
+            '0': ':zero:',
+            '1': ':one:',
+            '2': ':two:',
+            '3': ':three:',
+            '4': ':four:',
+            '5': ':five:',
+            '6': ':six:',
+            '7': ':seven:',
+            '8': ':eight:',
+            '9': ':nine:',
+        }
+        rand_number = str(random.randrange(0, number+1))
+        message = ''
+        for num in rand_number:
+            emoji = number_emojis[num]
+            message += emoji
+        await ctx.send(message)
+
 
 def setup(bot):
     bot.add_cog(FunStuff(bot))
