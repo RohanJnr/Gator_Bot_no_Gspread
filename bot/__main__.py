@@ -29,7 +29,8 @@ cogs = [
     'cogs.clashapi',
     'cogs.discord_agecheck',
     'cogs.interact',
-    'cogs.moderation',
+    # 'cogs.moderation',
+    'cogs.reddit',
     'cogs.notes',
     'cogs.trials',
     'cogs.war_strats'
