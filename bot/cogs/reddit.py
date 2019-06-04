@@ -50,8 +50,8 @@ class RedditCog(commands.Cog):
         imageURL = post['data']['url']
         embed = discord.Embed()
         embed.colour = 0xf9f586
-        embed.title = post['data']['title']
-        embed.description = post['data']['selftext'][0:50]
+        embed.title = str(post['data']['title'])[0:101]
+        embed.description = str(post['data']['selftext'])[0:50]
         embed.set_image(url=imageURL)
 
         embed.description += f'\n**{post["data"]["ups"]}** {upvote} '
