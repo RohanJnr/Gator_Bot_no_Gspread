@@ -93,6 +93,7 @@ class FunStuff(commands.Cog):
 
     @commands.command(name='random')
     async def random_number(self, ctx, number: int):
+        """Returns a random number from 1-input number."""
         number_emojis = {
             '0': ':zero:',
             '1': ':one:',
@@ -105,7 +106,7 @@ class FunStuff(commands.Cog):
             '8': ':eight:',
             '9': ':nine:',
         }
-        rand_number = str(random.randrange(0, number+1))
+        rand_number = str(random.randrange(1, number+1))
         message = ''
         for num in rand_number:
             emoji = number_emojis[num]
