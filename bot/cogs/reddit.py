@@ -1,7 +1,11 @@
+import logging
 import random
 
 import discord
 from discord.ext import commands
+
+
+logger = logging.getLogger(__name__)
 
 
 class RedditCog(commands.Cog):
@@ -57,3 +61,7 @@ class RedditCog(commands.Cog):
 
         await ctx.send(embed=embed)
 
+
+def setup(bot):
+    bot.add_cog(RedditCog(bot))
+    logger.debug("Reddit cog loaded.")
