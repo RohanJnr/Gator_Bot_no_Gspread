@@ -1,6 +1,8 @@
 import logging
 import random
 
+import aiohttp
+
 import discord
 from discord.ext import commands
 
@@ -63,5 +65,6 @@ class RedditCog(commands.Cog):
 
 
 def setup(bot):
+    bot.http_session = aiohttp.ClientSession()
     bot.add_cog(RedditCog(bot))
     logger.debug("Reddit cog loaded.")
