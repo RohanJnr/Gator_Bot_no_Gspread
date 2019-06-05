@@ -3,3 +3,4 @@ https://github.com/eliasfrank/humanify/archive/master.zip
 pynacl==1.2.1
 requests
 beautifulsoup4
+html5lib
