@@ -1,8 +1,11 @@
 import logging
 import random
 
+import asyncio
+import html5lib
 import aiohttp
 
+from bs4 import BeautifulSoup
 import discord
 from discord.ext import commands
 
@@ -62,6 +65,20 @@ class RedditCog(commands.Cog):
         embed.url = post['data']['url']
 
         await ctx.send(embed=embed)
+
+    @commands.command(name='lootindex')
+    async def get_loot_index(self, ctx):
+        SELECTED_URL = 'http://clashofclansforecaster.com/'
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(SELECTED_URL) as resp:
+                text = await resp.read()
+
+        sites_soup = BeautifulSoup(text.decode('utf-8'), 'html5lib')
+        so = str(sites_soup.text)
+        # print(so[119428:119431])
+        x = so.index('lootIndexString')
+        await ctx.send(so[x + 20:x + 23])
 
 
 def setup(bot):
