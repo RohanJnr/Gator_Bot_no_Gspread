@@ -85,7 +85,7 @@ class RedditCog(commands.Cog):
         word = so[a + 20:y - 5]
         embed = discord.Embed(colour=discord.Colour.blurple())
         embed.title = 'Clash Forecaster'
-        embed.description = f'Loot Index : {index}\nLoot : {word}\nMessage : {message}'
+        embed.description = f'**Loot Index** : {index}\n**Loot** : {word}\n**Message** : {message}'
         await ctx.send(embed=embed)
 
 
