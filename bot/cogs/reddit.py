@@ -27,7 +27,7 @@ class RedditCog(commands.Cog):
             return await response.json()
 
     @commands.command(name='reddit')
-    async def get_reddit(self, ctx, subreddit=None):
+    async def get_reddit(self, ctx, subreddit='clashofclans'):
         """
         Fetch reddit posts by using this command.
 
@@ -51,7 +51,7 @@ class RedditCog(commands.Cog):
         embed = discord.Embed()
         embed.colour = 0xf9f586
         embed.title = str(post['data']['title'])[0:101]
-        embed.description = str(post['data']['selftext'])[0:50]
+        embed.description = str(post['data']['selftext'])[0:101]
         embed.set_image(url=imageURL)
 
         embed.description += f'\n**{post["data"]["ups"]}** {upvote} '
