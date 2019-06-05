@@ -1,6 +1,8 @@
 import logging
 import random
 
+import html5lib
+
 import aiohttp
 from bs4 import BeautifulSoup
 
@@ -74,9 +76,17 @@ class RedditCog(commands.Cog):
 
         sites_soup = BeautifulSoup(text.decode('utf-8'), 'html5lib')
         so = str(sites_soup.text)
-        # print(so[119428:119431])
+        a = so.index('forecastWordNow')
+        y = so.index('forecastMessages')
         x = so.index('lootIndexString')
-        await ctx.send(so[x + 20:x + 23])
+        b = so.index("spanish")
+        message = so[y + 34:b - 5]
+        index = so[x + 20:x + 23]
+        word = so[a + 20:y - 5]
+        embed = discord.Embed(colour=discord.Colour.blurple())
+        embed.title = 'Clash Forecaster'
+        embed.description = f'Loot Index : {index}\nLoot : {word}\nMessage : {message}'
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
