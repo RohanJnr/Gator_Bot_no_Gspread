@@ -45,7 +45,7 @@ class Moderation(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
-        if before.guild.id == Client.guild:
+        if message.guild.id == Client.guild:
             log_channel = Channels.bot_logs
             embed = discord.Embed(colour=discord.Colour.blue())
             embed.title = f'Message deleted\nby {message.author} in #{message.channel}'
