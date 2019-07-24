@@ -33,7 +33,8 @@ cogs = [
     'cogs.reddit',
     'cogs.notes',
     'cogs.trials',
-    'cogs.war_strats'
+    'cogs.war_strats',
+    'cogs.events'
 ]
 for cog in cogs:
     bot.load_extension(cog)
