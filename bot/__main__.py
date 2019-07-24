@@ -98,5 +98,5 @@ async def on_command_error(ctx, error):
         raise error
 
 
-bot.loop.create_task(background_task())
+# bot.loop.create_task(background_task())
 bot.run(Client.token, bot=True, reconnect=True)
