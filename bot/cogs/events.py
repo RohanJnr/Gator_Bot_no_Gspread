@@ -48,7 +48,7 @@ class Events(commands.Cog):
            'First and foremost be sure you have read and understood <#265934148626153472> .',
            'Trials generally goes on for a week but can exceed(depends on your performance.',
            'While in trials, you have to attack plan either in this channel or in <#270058822981255178>.',
-           'We use in game calling for book bases.',
+           'We use in game calling.',
            'You cannot opt out of war while in trials unless you get permission from a staff member.'
             ]
         before_roles = [role.id for role in before.roles]
