@@ -9,5 +9,5 @@ def in_guild(guild_id):
             return True
         else:
             return False
-        
+
     return commands.check(predicate)

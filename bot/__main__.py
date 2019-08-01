@@ -1,5 +1,3 @@
-import asyncio
-import datetime
 import logging
 import os
 
@@ -8,96 +6,45 @@ from discord.ext import commands
 
 from bot.constants import Client
 
-logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
 
 
 def get_prefix(client, message):
 
-    prefixes = Client.prefixes
+    prefixes = os.environ.get("DISCORD_PREFIX")
     return commands.when_mentioned_or(*prefixes)(client, message)
 
 
-bot = commands.Bot(
-    command_prefix=get_prefix,
-    description='A dev bot',
-    owner_id=Client.owner_id,
-    case_insensitive=True
-)
+class GatorBot(commands.Bot):
+    """An instance of the bot."""
 
-cogs = [
-    'cogs.all_user_commands',
-    'cogs.clashapi',
-    'cogs.discord_agecheck',
-    'cogs.interact',
-    # 'cogs.moderation',
-    'cogs.reddit',
-    'cogs.notes',
-    'cogs.trials',
-    'cogs.war_strats',
-    'cogs.events'
-]
-for cog in cogs:
-    bot.load_extension(cog)
+    def __init__(self):
+        super().__init__(command_prefix=get_prefix,
+                         description="Climate Bot.")
 
+    async def on_ready(self):
 
-@bot.event
-async def on_ready():
-    logging.info(f'Running as {bot.user.name}')
-    logging.info(bot.user.id)
-    await bot.change_presence(activity=discord.Game(name='spotify'))
+        # list of all the cogs.
+        cogs = [cog for cog in os.listdir("bot/cogs") if cog.endswith(".py")]
 
+        for cog in cogs:
+            try:
+                # loading the cogs
+                self.load_extension("bot.cogs." + os.path.splitext(cog)[0])
 
-async def background_task():
+            except Exception as e:
+                # in case any cog/s did not load.
+                logger.error(f"Could not load extension {cog} due to error:\n{e}")
 
-    await bot.wait_until_ready()
-    while not bot.is_closed():
+        logger.info(f'Running as {self.user.name} with ID: {self.user.id}')
+        await self.change_presence(activity=discord.Game(name='A sunny morning!'))
 
-        if datetime.date.today().weekday() == 6:
-
-            # Reminder for weekly meeting at 10 PM EST
-            current_hour = datetime.datetime.now().hour
-            current_minute = datetime.datetime.now().minute
-            channel = bot.get_channel(254664901102927873)
-            if int(current_hour) == 1 and int(current_minute) == 30:
-                await channel.send(' ```Meeting Reminder```***@everyone meeting in 30min ! *** ')
-            else:
-                pass
-
-        elif datetime.date.today().weekday() == 5:
-            current_hour = datetime.datetime.now().hour
-            current_minute = datetime.datetime.now().minute
-            channel = bot.get_channel(254664901102927873)
-            if int(current_hour) == 2 and int(current_minute) == 00:
-                await channel.send(' ```Meeting Reminder```***@everyone meeting in 24 Hours ! *** ')
-            else:
-                pass
-        await asyncio.sleep(60)  # task runs every 60 seconds
+    def run(self):
+        # running the bot.
+        super().run(Client.token, bot=True, reconnect=True)
 
 
-async def trail_update():
-    """
-    updates existing trial member's war results in database.
-    """
-    pass
-
-
-@bot.event
-async def on_ready():
-    logging.info(f'Running as {bot.user.name}')
-    logging.info(bot.user.id)
-    await bot.change_presence(activity=discord.Game(name='Where\'s my water ?'))
-
-
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(f"{error} : Please provide all the necessary arguments.")
-    elif isinstance(error, commands.CommandNotFound):
-        await ctx.send("The following command does not exist.")
-    else:
-        await ctx.send(str(error))
-        raise error
-
-
-# bot.loop.create_task(background_task())
-bot.run(Client.token, bot=True, reconnect=True)
+if __name__ == "__main__":
+    bot = GatorBot()
+    bot.run()
