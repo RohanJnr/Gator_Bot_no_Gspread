@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 def get_prefix(client, message):
 
-    prefixes = os.environ.get("DISCORD_PREFIX")
+    prefixes = Client.prefixes
     return commands.when_mentioned_or(*prefixes)(client, message)
 
 
