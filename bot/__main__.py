@@ -21,7 +21,7 @@ class GatorBot(commands.Bot):
 
     def __init__(self):
         super().__init__(command_prefix=get_prefix,
-                         description="Climate Bot.")
+                         description="Gator Bot.")
 
     async def on_ready(self):
 
